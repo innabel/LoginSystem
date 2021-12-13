@@ -53,7 +53,7 @@ public class Login implements ActionListener {
         frame.setSize(420, 420);
         frame.setLayout(null);
         frame.setLocationRelativeTo(null); // to make the window appear in the middle
-        frame.setName("Login");
+        frame.setTitle("Login page");
         frame.setFont(new Font("Freestyle Script", Font.PLAIN, 40));
         frame.setVisible(true);
 
@@ -75,7 +75,9 @@ public class Login implements ActionListener {
                 if(loginMap.get(userId).equals(password)) {
                     messageLabel.setForeground(new Color(19, 163, 0));
                     messageLabel.setText("Login successful");
-                    WelcomePage welcomePage = new WelcomePage();
+                    frame.dispose();
+                    WelcomePage welcomePage = new WelcomePage(userId);
+
                 } else {
                     messageLabel.setForeground(new Color(163, 0 ,109));
                     messageLabel.setText("Wrong login / password");
